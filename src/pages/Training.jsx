@@ -5,6 +5,7 @@ import weight from "../assets/weight.png";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import SingleAccordion from "../components/Accordion";
+import Reviews from "../components/Reviews";
 
 const Training = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -1078,6 +1079,7 @@ Online Workout Programs, Best online fitness training, Online fitness training f
             </Box>
           </Grid>
         </Grid>
+        <Reviews/>
         <SingleAccordion page="Training" />
       </div>
     </>
