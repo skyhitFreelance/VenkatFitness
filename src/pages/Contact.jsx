@@ -7,7 +7,7 @@ const Contact = () => {
   const [pageUrl, setPageUrl] = useState('');
 
   useEffect(() => {
-    // Set the current page URL when the component mounts
+    // Set the current page URL when the component 
     setPageUrl(window.location.href);
   }, []);
   const sendEmail = (e) => {

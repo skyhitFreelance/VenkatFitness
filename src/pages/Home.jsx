@@ -12,6 +12,7 @@ import { Helmet } from "react-helmet";
 import SliderArrow from "../components/SlideArrow";
 import SingleAccordion from "../components/Accordion";
 
+
   
 const Home = () => {
 
@@ -250,6 +251,7 @@ const Home = () => {
             </Slider>
           </div>
         </div>
+        {/* <Reviews/> */}
         <SingleAccordion page="Home"/>
         <div className="bg-Teal flex flex-col md:flex-row justify-center items-center mt-20 border-b-2">
           <div className="lg:py-[50px] py-[10px] m-auto">
