@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
@@ -18,11 +17,9 @@ const Reviews = () => {
     files: [],
   });
   const [currentIndex, setCurrentIndex] = useState(0);
-  const reviewsPerPage = 2; // Number of reviews to display per page
   const [refetch, setRefetch] = useState(false);
-
-  const token =
-    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZlbmthdGZpdG5lc3MiLCJyb2xlIjoiYWRtaW4iLCJvcmciOiJ2ZW5rYXRmaXRuZXNzLW9yZyIsImlhdCI6MTczODkwNDk5OX0.1vaDlOyr2_ZMGqTt5Tc-LE6rhqRh1Hcyq3-p_Q60aw0"; // Replace with your actual token
+  const [reviewsPerPage, setReviewsPerPage] = useState(2); // Default to 2 for desktop
+  const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZlbmthdGZpdG5lc3MiLCJyb2xlIjoiYWRtaW4iLCJvcmciOiJ2ZW5rYXRmaXRuZXNzLW9yZyIsImlhdCI6MTczODkwNDk5OX0.1vaDlOyr2_ZMGqTt5Tc-LE6rhqRh1Hcyq3-p_Q60aw0"; // Replace with your actual token"; // Replace with your actual token"; // Replace with your actual token
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -38,12 +35,9 @@ const Reviews = () => {
         );
 
         if (!response.ok) {
-          throw new Error(
-            "Error fetching review stats: " + response.statusText
-          );
+          throw new Error("Error fetching review stats: " + response.statusText);
         }
         const data = await response.json();
-        console.log("Fetched stats:", data); // Log the fetched stats
         setStats(data);
       } catch (error) {
         console.error(error);
@@ -67,15 +61,38 @@ const Reviews = () => {
         }
 
         const data = await response.json();
-        console.log("Fetched reviews:", data); // Log the fetched reviews
         setReviews(data);
       } catch (error) {
         console.error(error);
       }
     };
+
     fetchStats();
     fetchReviews();
   }, [refetch]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setReviewsPerPage(window.innerWidth < 768 ? 1 : 2);
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener("resize", handleResize); // Add event listener
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Cleanup
+    };
+  }, []);
+
+  let autoCarouselInterval; // Declare a variable to hold the interval
+
+  useEffect(() => {
+    autoCarouselInterval = setInterval(() => {
+      nextSlide();
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(autoCarouselInterval); // Cleanup on unmount
+  }, [currentIndex, reviews.length]); // Depend on currentIndex and reviews.length
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -115,7 +132,6 @@ const Reviews = () => {
       }
 
       const newReview = await response.json();
-      console.log("New review submitted:", newReview); // Log the new review
       setRefetch(true);
       setFormData({
         name: "",
@@ -132,53 +148,75 @@ const Reviews = () => {
   const nextSlide = () => {
     if (currentIndex + reviewsPerPage < reviews.length) {
       setCurrentIndex((prev) => prev + reviewsPerPage);
+    } else {
+      setCurrentIndex(0); // Loop back to the start
     }
   };
 
   const prevSlide = () => {
-    if (currentIndex > 0) {
+    if (currentIndex - reviewsPerPage >= 0) {
       setCurrentIndex((prev) => prev - reviewsPerPage);
+    } else {
+      setCurrentIndex(Math.max(0, reviews.length - reviewsPerPage)); // Loop back to the end
     }
   };
 
   // Modal functions
   let currentModalIndex = 0;
   let modalImages = [];
+  let modalReviewData = {};
 
-  const openModal = (index, fileUrls, name, reviewText) => {
+  const openModal = (index, fileUrls, name, reviewText, rating) => {
+    clearInterval(autoCarouselInterval); // Stop the auto carousel
     currentModalIndex = index;
     modalImages = fileUrls;
-    updateModal(name, reviewText);
+    modalReviewData = { name, reviewText, rating };
+    updateModal();
     document.getElementById("modal").classList.remove("hidden");
   };
 
   const closeModal = () => {
+    autoCarouselInterval = setInterval(() => {
+      nextSlide(); // Resume the auto carousel
+    }, 5000); // Change slide every 5 seconds
     document.getElementById("modal").classList.add("hidden");
   };
 
-  const updateModal = (name, reviewText) => {
+  const updateModal = () => {
     document.getElementById("modalImage").src = modalImages[currentModalIndex];
-    document.getElementById("modalTitle").textContent = name;
-    document.getElementById("modalContent").textContent = reviewText;
+    document.getElementById("modalTitle").textContent = modalReviewData.name;
+    document.getElementById("modalContent").textContent = modalReviewData.reviewText;
+
+    // Update stars in the modal
+    const modalStars = document.getElementById("modalStars");
+    modalStars.innerHTML = ""; // Clear previous stars
+    for (let i = 0; i < 5; i++) {
+      const star = document.createElement("i");
+      star.className = "fas fa-star " + (i < modalReviewData.rating ? "text-yellow-500" : "text-gray-300");
+      modalStars.appendChild(star);
+    }
   };
 
   const nextImage = () => {
     if (currentModalIndex < modalImages.length - 1) {
       currentModalIndex++;
-      updateModal();
+    } else {
+      currentModalIndex = 0; // Loop back to the first image
     }
+    updateModal();
   };
 
   const prevImage = () => {
     if (currentModalIndex > 0) {
       currentModalIndex--;
-      updateModal();
+    } else {
+      currentModalIndex = modalImages.length - 1; // Loop back to the last image
     }
+    updateModal();
   };
 
   // Calculate total pages
   const totalPages = Math.ceil(reviews.length / reviewsPerPage);
-  const currentPage = Math.floor(currentIndex / reviewsPerPage) + 1;
 
   return (
     <div className="max-w-6xl mx-auto p-4">
@@ -206,7 +244,7 @@ const Reviews = () => {
               ))}
             </div>
             <p className="text-gray-400 mb-4">
-              Overall rating of {stats.totalReviews} 1st-party reviews
+              Overall Rating Based on {stats.totalReviews} reviews
             </p>
             <div className="space-y-2">
               {Object.keys(stats.ratingCounts)
@@ -369,7 +407,8 @@ const Reviews = () => {
                             index,
                             review.fileUrls,
                             review.name,
-                            review.reviewText
+                            review.reviewText,
+                            review.rating // Pass the rating to the modal
                           )
                         }
                       />
@@ -447,12 +486,9 @@ const Reviews = () => {
             <div className="ml-6 w-2/3 flex flex-col justify-center">
               <h2 id="modalTitle" className="text-xl font-bold text-black"></h2>
               <div className="flex items-center mt-2" id="modalStars">
-                {[...Array(5)].map((_, index) => (
-                  <i key={index} className="fas fa-star text-yellow-500"></i>
-                ))}
+                {/* Stars will be dynamically added here */}
               </div>
-              <p id="modalContent" className="text-black mt-2"></p>{" "}
-              {/* Set text color to black */}
+              <p id="modalContent" className="text-black mt-2"></p>
             </div>
             <button onClick={nextImage} className="self-center p-2 text-2xl">
               ▶

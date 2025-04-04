@@ -140,7 +140,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <div className="bg-gray-100 py-20 px-2">
+        <div className="bg-gray-100 py-10 px-2">
           <div className="mx-auto text-center flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/4 mb-8 md:mb-0">
               <h2 className="text-5xl font-bold mb-8 font-Poppins">
@@ -203,7 +203,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="bg-gray-100 py-20">
+        <div className="bg-gray-100 py-3 ">
           <div className="container px-4 mx-auto text-center">
             <h2 className="text-5xl font-bold mb-12">Reviews</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
