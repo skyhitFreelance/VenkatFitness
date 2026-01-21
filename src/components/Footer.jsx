@@ -174,11 +174,11 @@ const Footer = () => {
           </Grid>
         </Grid>
         <Typography className="text-center border-t-2 pt-2 pb-2">
-          © Copyright 2012 - 2024 | All Rights Reserved | Designed and
-          Maintained by{" "}
+          © Copyright 2012 - {new Date().getFullYear()} | All Rights Reserved |
+          Designed and Maintained by{" "}
           <Link
             to="https://skyhitmedia.com/"
-            target="blank"
+            target="_blank"
             className="text-Teal"
           >
             SKYHIT MEDIA

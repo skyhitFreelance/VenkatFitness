@@ -1,5 +1,5 @@
-import banner from "../assets/Fitness-Trainer-in-Hyderabad.jpg";
-import mobileBanner from "../assets/Personal-Trainer-near-me-in-Hyderabad.jpg";
+// import banner from "../assets/Fitness-Trainer-in-Hyderabad.jpg";
+// import mobileBanner from "../assets/Personal-Trainer-near-me-in-Hyderabad.jpg";
 import ProgressBar from "../utils/ProgressBar";
 import Slider from "react-slick";
 import { Box, Typography } from "@mui/material";
@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import SliderArrow from "../components/SlideArrow";
 import SingleAccordion from "../components/Accordion";
+import BannerSlider from "../components/BannerSlider";
 
 
   
@@ -82,7 +83,8 @@ const Home = () => {
       </Helmet>
 
       <div className="top-[120px] relative">
-        <div>
+        <BannerSlider/>
+        {/* <div>
           <img
             src={banner}
             alt="Venkat Trainer"
@@ -95,7 +97,7 @@ const Home = () => {
             className="w-full lg:hidden"
             loading="lazy"
           />
-        </div>
+        </div> */}
         <div className="flex m-8">
           <h1
             className="sm:text-5xl font-extrabold font-Poppins lg:p-8 p-2 m-auto"

@@ -20,6 +20,8 @@ import {
 import BlogContent from "./pages/BlogContent";
 import CategoryBlogs from "./pages/CategoryBlogs";
 import { Helmet } from "react-helmet";
+import WhatsAppFloat from "./components/WhatsAppFloat";
+import EntryPopupBanner from "./components/EntryPopupBanner";
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -118,6 +120,8 @@ function App() {
           {/* Fallback route to redirect all 404 pages to Home */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
+        <WhatsAppFloat/>
+        <EntryPopupBanner/>
         <Footer />
       </div>
     </BrowserRouter>
