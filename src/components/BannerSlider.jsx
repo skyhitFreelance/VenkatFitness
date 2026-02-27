@@ -9,13 +9,13 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
 import banner from "../assets/Fitness-Trainer-in-Hyderabad.jpg";
-import banner1 from "../assets/nri-online-fitness-trainer.webp";
-import mobileBanner from "../assets/india-best-online-fitness-trainer-for-weight-loss.webp";
+// import banner1 from "../assets/nri-online-fitness-trainer.webp";
+// import mobileBanner from "../assets/india-best-online-fitness-trainer-for-weight-loss.webp";
 import mobileBanner1 from "../assets/Personal-Trainer-near-me-in-Hyderabad.jpg";
 
 const BannerSlider = () => {
   const slides = [
-    { desktop: banner1, mobile: mobileBanner, alt: "Trainer 1" },
+    // { desktop: banner1, mobile: mobileBanner, alt: "Trainer 1" },
     { desktop: banner, mobile: mobileBanner1, alt: "Trainer 2" },
   ];
 

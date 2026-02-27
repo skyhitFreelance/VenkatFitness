@@ -17,11 +17,11 @@ import {
   QUERY_SLUG_POSTS,
   grahcms,
 } from "./utils/Queries";
-import BlogContent from "./pages/BlogContent";
+import BlogContent from "./pages/BlogContent";  
 import CategoryBlogs from "./pages/CategoryBlogs";
 import { Helmet } from "react-helmet";
 import WhatsAppFloat from "./components/WhatsAppFloat";
-import EntryPopupBanner from "./components/EntryPopupBanner";
+// import EntryPopupBanner from "./components/EntryPopupBanner";
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -121,7 +121,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <WhatsAppFloat/>
-        <EntryPopupBanner/>
+        {/* <EntryPopupBanner/> */}
         <Footer />
       </div>
     </BrowserRouter>
