@@ -1,4 +1,29 @@
 [[redirects]]
-from="/*"
-to="/index.html"
-status=200
+from = "/*"
+to = "/index.html"
+status = 200
+
+[[redirects]]
+from = "/transformations/"
+to = "/transformations"
+status = 301
+
+[[redirects]]
+from = "/about-me/"
+to = "/about-me"
+status = 301
+
+[[redirects]]
+from = "/contact-us/"
+to = "/contact-us"
+status = 301
+
+[[redirects]]
+from = "/online-training/"
+to = "/online-training"
+status = 301
+
+[[redirects]]
+from = "/blogs/"
+to = "/blogs"
+status = 301

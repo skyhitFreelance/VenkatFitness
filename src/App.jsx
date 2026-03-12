@@ -21,6 +21,7 @@ import BlogContent from "./pages/BlogContent";
 import CategoryBlogs from "./pages/CategoryBlogs";
 import { Helmet } from "react-helmet";
 import WhatsAppFloat from "./components/WhatsAppFloat";
+import EntryPopupBanner from "./components/EntryPopupBanner";
 // import EntryPopupBanner from "./components/EntryPopupBanner";
 
 function App() {

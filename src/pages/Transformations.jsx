@@ -14,11 +14,13 @@ const Transformations = () => {
     const fetchTransformations = async () => {
       try {
         const data = await grahcms.request(QUERY_TRANSFORMATIONS);
-        const transformations = data?.transformations[0]?.transformationUrl || []; // Access nested transformations array
-        console.log(transformations, 'trabssb')
-        setDynamicImages(transformations);
+        const transformations = data?.transformations?.[0]?.transformationUrl || [];
+        if (transformations && transformations.length > 0) {
+          setDynamicImages(transformations);
+        }
       } catch (error) {
         console.error("Error fetching transformations:", error);
+        // Silently fail - static images will still be displayed
       }
     };
 
@@ -74,7 +76,7 @@ const Transformations = () => {
           <PhotoProvider>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
               {/* First two rows of static images */}
-              {Images.slice(0, 16).map((item, index) => (
+              {Images.slice(0, 18).map((item, index) => (
                 <PhotoView
                   key={index}
                   src={item}

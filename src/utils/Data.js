@@ -21,6 +21,8 @@ import newFitn4 from "../assets/Celebrity-Personal-Trainer.webp";
 import newFitn5 from "../assets/Celebrity-Personal-Trainer-in-Hyderabad.jpg";
 import fitness6 from "../assets/Online-fitness-coach-uk.png";
 import fitness7 from "../assets/online-fitness-trainer-australia.JPG.webp";
+import fitness10 from "../assets/gyms-in-hyderabad.jpg.jpeg";
+import fitness11 from "../assets/hyderabad-fitness-trainer.jpeg";
 import fitness8 from "../assets/online-fitness-tutor-in-india.jpg.webp";
 import fitness2 from "../assets/fitness2.webp";
 import fitness3 from "../assets/fitness3.webp";
@@ -192,6 +194,8 @@ export const Images = [
   newFitn5,
   fitness6,
   fitness7,
+  fitness10,
+  fitness11,
   fitness8,
   fitness2,
   fitness3,
