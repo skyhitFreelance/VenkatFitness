@@ -12,6 +12,7 @@ import { Helmet } from "react-helmet";
 import SliderArrow from "../components/SlideArrow";
 import SingleAccordion from "../components/Accordion";
 import BannerSlider from "../components/BannerSlider";
+import TransformationPlans from "../components/TransformationPlans/TransformationPlans";
 
 
   
@@ -142,6 +143,8 @@ const Home = () => {
             ))}
           </div>
         </div>
+                      <TransformationPlans/>
+
         <div className="bg-gray-100 py-10 px-2">
           <div className="mx-auto text-center flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/4 mb-8 md:mb-0">
@@ -192,6 +195,7 @@ const Home = () => {
                   </h3>
                 </div>
               </div>
+
 
               {/* Progress Bars */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">

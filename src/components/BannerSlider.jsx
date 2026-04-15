@@ -126,17 +126,17 @@ import banner from "../assets/Fitness-Trainer-in-Hyderabad.jpg";
 import mobileBanner1 from "../assets/Personal-Trainer-near-me-in-Hyderabad.jpg";
 
 // ✅ New Images from assets
-import nriBanner from "../assets/online-nri-fitness-trainer-in-india.png";
+// import nriBanner from "../assets/online-nri-fitness-trainer-in-india.png";
 import nriMobileBanner from "../assets/venkat-fitness-training-for-nri-clients.jpg.jpeg";
 
 const BannerSlider = () => {
   const slides = [
     // ✅ FIRST SLIDE
-    {
-      desktop: nriBanner,
-      mobile: nriMobileBanner,
-      alt: "Online NRI Fitness Trainer",
-    },
+    // {
+    //   desktop: nriBanner,
+    //   mobile: nriMobileBanner,
+    //   alt: "Online NRI Fitness Trainer",
+    // },
 
     // Existing Slide
     {
