@@ -1,7 +1,7 @@
 import React from 'react';
 import SocialLinks from './FooterSocialLinks';
 import { Link } from 'react-router-dom';
-import logo from '../assets/Venkat-fitness-trainer.png'
+import logo from '../assets/Venkat-fitness-trainer.webp'
 
 const ThankYou = () => {
     return (

@@ -26,6 +26,7 @@ const SliderArrow = (props) => {
       color="inherit"
       onClick={onClick}
       className={className}
+      aria-label={type === "next" ? "Next Slide" : "Previous Slide"}
     >
       {type === "next" ? (
         <IconArrowForward sx={{ fontSize: 22 }} />
@@ -37,8 +38,8 @@ const SliderArrow = (props) => {
 };
 
 SliderArrow.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   type: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 export default SliderArrow;

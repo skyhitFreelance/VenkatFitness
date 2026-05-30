@@ -14,11 +14,16 @@ import sunil1 from "../assets/sunil1.webp";
 import sunil2 from "../assets/sunil2.webp";
 import prince from "../assets/prince.webp";
 import fitness1 from "../assets/fitness1.webp";
-import newFitn1 from "../assets/Best-Celebrity-Fitness-Trainer.jpg";
-import newFitn2 from "../assets/Celebrity-fitness-coach.jpg";
-import newFitn3 from "../assets/Celebrity-fitness-trainer-in-Hyderabad.png";
+import newFitn1 from "../assets/Best-Celebrity-Fitness-Trainer.webp";
+import newFitn2 from "../assets/Celebrity-fitness-coach.webp";
+import newFitn3 from "../assets/Celebrity-fitness-trainer-in-Hyderabad.webp";
 import newFitn4 from "../assets/Celebrity-Personal-Trainer.webp";
 import newFitn5 from "../assets/Celebrity-Personal-Trainer-in-Hyderabad.jpg";
+import fitness6 from "../assets/Online-fitness-coach-uk-DkG-DRhW.webp";
+import fitness7 from "../assets/online-fitness-trainer-australia.JPG.webp";
+import fitness10 from "../assets/gyms-in-hyderabad.jpg-DSHkhvmy.webp";
+import fitness11 from "../assets/hyderabad-fitness-trainer.jpeg";
+import fitness8 from "../assets/online-fitness-tutor-in-india.jpg.webp";
 import fitness2 from "../assets/fitness2.webp";
 import fitness3 from "../assets/fitness3.webp";
 import fitness4 from "../assets/fitness4.webp";
@@ -27,11 +32,11 @@ import coach from "../assets/Online Coach.jpeg";
 import onlinePersonal from "../assets/Online Personal Trainer India.jpg";
 import onlinePersonal2 from "../assets/Online Personal Training.jpeg";
 import onlinePersonal3 from "../assets/Online Virtual Personal Wellness and Fitness Training.jpg";
-import onlinePersonal4 from "../assets/Top-Online-fitness-trainer-in-india.jpg";
-import onlinePersonal5 from "../assets/Transformation Trainer.jpeg";
+import onlinePersonal4 from "../assets/Top-Online-fitness-trainer-in-india-Br4M6-2s.webp";
+import onlinePersonal5 from "../assets/TransformationTrainer-B8fLJ0sO.webp";
 import onlinePersonal6 from "../assets/Best Online Fitness Training in Indi.jpg";
 import onlinePersonal7 from "../assets/bestpweight-loss-coach-online.jpg";
-import onlinePersonal8 from "../assets/India's Best Online Fitness Trainer.jpeg";
+import onlinePersonal8 from "../assets/India'sBestOnlineFitnessTrainer-DgMato57.webp";
 import onlinePersonal9 from "../assets/best online fitness trainer in india.jpg";
 import onlinePersonal10 from "../assets/online fitness coach.jpg";
 import onlinePersonal11 from "../assets/online gym training.webp";
@@ -187,6 +192,11 @@ export const Images = [
   newFitn3,
   newFitn4,
   newFitn5,
+  fitness6,
+  fitness7,
+  fitness10,
+  fitness11,
+  fitness8,
   fitness2,
   fitness3,
   fitness4,

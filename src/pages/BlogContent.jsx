@@ -5,7 +5,7 @@ import Contact from "./Contact";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import parse from "html-react-parser";
-import bannerImage from "../assets/Venkat-Fitness-Transformations-scaled-e1704266804184-2048x734.jpeg";
+const bannerImage = "/Venkat-Fitness-Transformations.jpeg";
 import { grahcms, QUERY_INDIVIDUAL_POST, QUERY_PRODUCTS } from "../utils/Queries";
 import { BlogSkeleton, ProductSkeleton } from "../utils/Skelton";
 
@@ -126,6 +126,9 @@ const BlogContent = () => {
               src={blog?.bannerImage?.url ?? bannerImage}
               alt="Blog Cover"
               loading="lazy"
+              width="800"
+              height="450"
+              style={{ width: "100%", height: "auto", aspectRatio: "16/9" }}
             />
             <h1 className="font-bold text-2xl my-1 pt-5">{blog?.title}</h1>
             <div className="pt-5">{parse(blog?.content?.html || "")}</div>

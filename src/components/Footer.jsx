@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import SocialLinks from "./FooterSocialLinks";
-import logo from "../assets/Venkat-fitness-trainer.png";
+import logo from "../assets/Venkat-fitness-trainer.webp";
 import map from "../assets/map.svg";
 import FooterNavigation from "./FooterNavigation";
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <Box className="pt-[126px]">
+      <Box className="pt-20">
         <Grid
           container
           spacing={1}
@@ -27,6 +27,8 @@ const Footer = () => {
                     src={logo}
                     alt="Venket Fitness"
                     style={{ height: "120px" }}
+                    width="120"
+                    height="120"
                   />
                 </Link>
                 {/* <Typography className='text-justify' sx={{ letterSpacing: 1, mb: 2, fontSize: '30px', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
@@ -35,6 +37,7 @@ const Footer = () => {
               </div>
               <Typography
                 variant="subtitle2"
+                component="p"
                 sx={{
                   letterSpacing: 1,
                   mb: 2,
@@ -45,6 +48,7 @@ const Footer = () => {
               </Typography>
               <Typography
                 variant="subtitle1"
+                component="p"
                 sx={{
                   letterSpacing: 1,
                   mb: 2,
@@ -107,6 +111,7 @@ const Footer = () => {
               </Typography>
               <Typography
                 variant="subtitle2"
+                component="p"
                 sx={{ mb: 2, fontFamily: "Poppins, sans-serif", color: "gray" }}
               >
                 05:00 - 19:00
@@ -124,6 +129,7 @@ const Footer = () => {
               </Typography>
               <Typography
                 variant="subtitle1"
+                component="p"
                 sx={{ mb: 2, fontFamily: "Poppins, sans-serif", color: "gray" }}
               >
                 05:00 - 19:00
@@ -174,12 +180,12 @@ const Footer = () => {
           </Grid>
         </Grid>
         <Typography className="text-center border-t-2 pt-2 pb-2">
-          © Copyright 2012 - 2024 | All Rights Reserved | Designed and
-          Maintained by{" "}
+          © Copyright 2012 - {new Date().getFullYear()} | All Rights Reserved |
+          Designed and Maintained by{" "}
           <Link
             to="https://skyhitmedia.com/"
-            target="blank"
-            className="text-Teal"
+            target="_blank"
+            className="text-[#00cfff] hover:text-white"
           >
             SKYHIT MEDIA
           </Link>
