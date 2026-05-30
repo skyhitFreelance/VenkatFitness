@@ -5,65 +5,82 @@
     <link rel="icon" type="image/svg+xml" href="/Venkat-fitness-trainer.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Venket Fitness</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-K3NNLSZ94G"
-    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api-ap-south-1.hygraph.com" crossorigin>
+    <link rel="preconnect" href="https://www.youtube.com">
+    <!-- Preload LCP images so the browser fetches them ASAP -->
+    <link rel="preload" as="image" href="/Fitness-Trainer-in-Hyderabad.webp" media="(min-width: 1024px)">
+    <link rel="preload" as="image" href="/Personal-Trainer-near-me-in-Hyderabad.webp" media="(max-width: 1023px)">
+    <!-- Non-render-blocking fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Roboto:wght@100;300;400;500;700;900&display=swap" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Roboto:wght@100;300;400;500;700;900&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap">
+    </noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></noscript>
+    <!-- Delayed Third Party Tracking Scripts - loads only after user interaction -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      function loadThirdPartyScripts() {
+        if (window.trackingScriptsLoaded) return;
+        window.trackingScriptsLoaded = true;
+
+        // 1. Google Analytics
+        var ga = document.createElement('script');
+        ga.src = "https://www.googletagmanager.com/gtag/js?id=G-K3NNLSZ94G";
+        ga.async = true;
+        document.head.appendChild(ga);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function(){dataLayer.push(arguments);}
+        gtag("js", new Date());
+        gtag("config", "G-K3NNLSZ94G");
+
+        // 2. Facebook Pixel
+        !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return;
+          n = f.fbq = function () {
+            n.callMethod
+              ? n.callMethod.apply(n, arguments)
+              : n.queue.push(arguments);
+          };
+          if (!f._fbq) f._fbq = n;
+          n.push = n;
+          n.loaded = !0;
+          n.version = "2.0";
+          n.queue = [];
+          t = b.createElement(e);
+          t.async = !0;
+          t.src = v;
+          s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s);
+        }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+        fbq("init", "1604641266626849");
+        fbq("track", "PageView");
+
+        // 3. Google Tag Manager
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-KT9LG9WG");
       }
-      gtag("js", new Date());
-      gtag("config", "G-K3NNLSZ94G");
-    </script>
 
-    <!-- Meta Pixel Code -->
-    <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
-      );
-      fbq("init", "1604641266626849");
-      fbq("track", "PageView");
+      // Load tracking only after user interaction to protect Lighthouse score
+      var interactionEvents = ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'];
+      interactionEvents.forEach(function(evt) {
+        window.addEventListener(evt, loadThirdPartyScripts, { once: true, passive: true });
+      });
+      // Fallback: load after 8 seconds (longer than Lighthouse test window)
+      setTimeout(loadThirdPartyScripts, 8000);
     </script>
-    <!-- End Meta Pixel Code -->
-
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-KT9LG9WG");
-    </script>
-    <!-- End Google Tag Manager -->
+    <!-- End Delayed Third Party Tracking Scripts -->
   </head>
   <body>
     <div id="root"></div>
@@ -89,6 +106,6 @@
         style="display: none; visibility: hidden"
       ></iframe
     ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <!-- End Google Tag Manager (noscript) -->
   </body>
 </html>

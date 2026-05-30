@@ -1,29 +1,28 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, Suspense, lazy } from "react";
 import "./App.css";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
 import "./react-slick.css";
 import "slick-carousel/slick/slick.css";
-import About from "./pages/About";
-import Transformations from "./pages/Transformations";
-import ContactUs from "./pages/ContactUs";
-import Training from "./pages/Training";
-import ThankYou from "./components/ThankYou";
-import Blogs from "./pages/Blogs";
 import {
   QUERY_SLUG_CATEGORIES,
   QUERY_SLUG_POSTS,
   grahcms,
 } from "./utils/Queries";
-import BlogContent from "./pages/BlogContent";  
-import CategoryBlogs from "./pages/CategoryBlogs";
 import { Helmet } from "react-helmet";
 import WhatsAppFloat from "./components/WhatsAppFloat";
-import EntryPopupBanner from "./components/EntryPopupBanner";
-// import EntryPopupBanner from "./components/EntryPopupBanner";
 
+// Lazy-loaded components
+import Home from "./pages/Home";
+const About = lazy(() => import("./pages/About"));
+const Transformations = lazy(() => import("./pages/Transformations"));
+const ContactUs = lazy(() => import("./pages/ContactUs"));
+import Training from "./pages/Training";
+const ThankYou = lazy(() => import("./components/ThankYou"));
+const Blogs = lazy(() => import("./pages/Blogs"));
+const BlogContent = lazy(() => import("./pages/BlogContent"));
+const CategoryBlogs = lazy(() => import("./pages/CategoryBlogs"));
 function App() {
   const [categories, setCategories] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -94,33 +93,38 @@ function App() {
           <meta property="og:image" content="" />
           <meta property="og:url" content="https://venketfitness.com/" />
         </Helmet>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/about-me" element={<About />} />
-          <Route path="/transformations" element={<Transformations />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/online-training" element={<Training />} />
-          <Route
-            path="/blogs"
-            element={
-              <Blogs
-                Blogs={posts}
-                onPageChange={handlePageChange}
-                currentPage={currentPage}
+        <main id="main-content">
+          <Suspense fallback={<div style={{ height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/about-me" element={<About />} />
+              <Route path="/transformations" element={<Transformations />} />
+              <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/online-training" element={<Training />} />
+              <Route path="/online-fitness-training" element={<Training />} />
+              <Route
+                path="/blogs"
+                element={
+                  <Blogs
+                    Blogs={posts}
+                    onPageChange={handlePageChange}
+                    currentPage={currentPage}
+                  />
+                }
               />
-            }
-          />
-          <Route path="/blog/:slug" element={<Navigate to="/:slug" />} />
-          <Route path="/:slug" element={<BlogContent />} />
-          <Route
-            path="/blog/category/:name"
-            element={<CategoryBlogs posts={posts} categories={categories} />}
-          />
-          <Route path="/thank-you" element={<ThankYou />} />
-          {/* Fallback route to redirect all 404 pages to Home */}
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+              <Route path="/blog/:slug" element={<Navigate to="/:slug" />} />
+              <Route path="/:slug" element={<BlogContent />} />
+              <Route
+                path="/blog/category/:name"
+                element={<CategoryBlogs posts={posts} categories={categories} />}
+              />
+              <Route path="/thank-you" element={<ThankYou />} />
+              {/* Fallback route to redirect all 404 pages to Home */}
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </Suspense>
+        </main>
         <WhatsAppFloat/>
         {/* <EntryPopupBanner/> */}
         <Footer />

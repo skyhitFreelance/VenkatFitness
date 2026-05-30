@@ -16,6 +16,7 @@ const WhatsAppFloat = () => {
         href="https://wa.link/8n9m3i"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
         sx={{
           backgroundColor: "#25D366",
           color: "#fff",

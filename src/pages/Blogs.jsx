@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import bannerImage from "../assets/Venkat-Fitness-Transformations-scaled-e1704266804184-2048x734.jpeg";
+const bannerImage = "/Venkat-Fitness-Transformations.jpeg";
 import "./index.css";
 import Paginate from "./Paginate";
 
@@ -25,13 +25,16 @@ const Blogs = ({ Blogs, currentPage, onPageChange }) => {
           paddingTop: "70px",
         }}
       >
-        <header className="bannerb">
+        <header className="bannerb" style={{ minHeight: "185px" }}>
           <div className="banner-overlay">
             <img
               src={bannerImage}
               alt="blogs"
               className="banner-image"
-              loading="lazy"
+              fetchpriority="high"
+              width="2048"
+              height="734"
+              style={{ width: "100%", height: "auto" }}
             />
           </div>
         </header>
@@ -58,6 +61,9 @@ const Blogs = ({ Blogs, currentPage, onPageChange }) => {
                   }
                   alt="Blog Cover"
                   loading="lazy"
+                  width="411"
+                  height="231"
+                  style={{ width: "100%", height: "auto", aspectRatio: "411/231", objectFit: "cover" }}
                 />
                 <div className="blog-contents">
                   <h6 className="blog-title">{blog.title}</h6>

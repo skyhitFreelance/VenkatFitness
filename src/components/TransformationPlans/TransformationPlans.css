@@ -541,20 +541,33 @@
   }
 
   .tp-dot {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: transparent !important;
+    position: relative;
+    padding: 0;
+    margin: -20px -10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tp-dot::before {
+    content: '';
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    border: none;
-    background: #00cfff !important;
+    background: #00cfff;
     opacity: 0.95;
-    padding: 0;
-    cursor: pointer;
+    transition: all 0.3s ease;
   }
 
-  .tp-dot.active {
+  .tp-dot.active::before {
     width: 13px;
     height: 13px;
-    background: transparent !important;
+    background: transparent;
     border: 2px solid #00cfff;
     opacity: 1;
   }

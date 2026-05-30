@@ -12,7 +12,8 @@ import { Helmet } from "react-helmet";
 import SliderArrow from "../components/SlideArrow";
 import SingleAccordion from "../components/Accordion";
 import BannerSlider from "../components/BannerSlider";
-import TransformationPlans from "../components/TransformationPlans/TransformationPlans";
+import React, { lazy, Suspense } from "react";
+const TransformationPlans = lazy(() => import("../components/TransformationPlans/TransformationPlans"));
 
 
   
@@ -108,9 +109,9 @@ const Home = () => {
           </h1>
         </div>
         <div className="flex flex-col items-center px-2">
-          <h4 className="text-4xl font-Poppins font-bold uppercase m-auto pb-20">
+          <h2 className="text-4xl font-Poppins font-bold uppercase m-auto pb-20">
             Services
-          </h4>
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Box 1 */}
             {servicesData.map((service) => (
@@ -123,10 +124,12 @@ const Home = () => {
                   alt="Service 1"
                   className="max-w-[95%] m-auto"
                   loading="lazy"
+                  width="413"
+                  height="413"
                 />
-                <h5 className="text-white text-center text-2xl py-2 font-Poppins font-semibold mb-2">
+                <h3 className="text-white text-center text-2xl py-2 font-Poppins font-semibold mb-2">
                   {service.title}
-                </h5>
+                </h3>
                 <div className="py-12 flex justify-center">
                   <ul className="text-white flex flex-col justify-center items-start">
                     {service.list.map((item, index) => (
@@ -143,7 +146,10 @@ const Home = () => {
             ))}
           </div>
         </div>
-                      <TransformationPlans/>
+        {/* Fitness Transformation Plans */}
+        <Suspense fallback={<div className="text-center py-10">Loading plans...</div>}>
+          <TransformationPlans />
+        </Suspense>
 
         <div className="bg-gray-100 py-10 px-2">
           <div className="mx-auto text-center flex flex-col md:flex-row items-center">
@@ -165,6 +171,8 @@ const Home = () => {
                     alt="profile"
                     className="h-20 p-6 border-4 border-Teal"
                     loading="lazy"
+                    width="80"
+                    height="80"
                   />
                   <h3 className="text-2xl font-semibold mb-4 mt-4 font-Poppins">
                     Professional Trainer
@@ -177,6 +185,8 @@ const Home = () => {
                     alt="list"
                     className="h-20 p-6 border-4 border-Teal"
                     loading="lazy"
+                    width="80"
+                    height="80"
                   />
                   <h3 className="text-2xl font-semibold mb-4 mt-4 font-Poppins">
                     Have Done Certification
@@ -189,6 +199,8 @@ const Home = () => {
                     alt="people"
                     className="h-20 p-6 border-4 border-Teal"
                     loading="lazy"
+                    width="80"
+                    height="80"
                   />
                   <h3 className="text-2xl font-semibold mb-4 mt-4 font-Poppins">
                     Friendly Personal Trainer
@@ -222,6 +234,7 @@ const Home = () => {
                     title={video.name}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
                     style={{ maxWidth: "730px", maxHeight: "360px" }} // Adjust as needed
                   ></iframe>
                 </div>
@@ -251,6 +264,8 @@ const Home = () => {
                     alt={gallery.name}
                     style={{ width: "100%", margin: "0 8px" }}
                     loading="lazy"
+                    width="400"
+                    height="300"
                   />
                 </Box>
               ))}

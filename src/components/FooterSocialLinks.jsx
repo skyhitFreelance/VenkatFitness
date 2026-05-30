@@ -73,7 +73,7 @@ const SocialLinkItem = ({ item }) => (
             href={item.link}
         >
             {/* eslint-disable-next-line */}
-            <img src={item.icon} alt={item.name + 'icon'} loading='lazy'/>
+            <img src={item.icon} alt={item.name + 'icon'} loading='lazy' width="22" height="22" />
         </Link>
     </Box>
 )

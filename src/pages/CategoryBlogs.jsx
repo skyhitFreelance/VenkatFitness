@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import bannerImage from '../assets/Venkat-Fitness-Transformations-scaled-e1704266804184-2048x734.jpeg';
+const bannerImage = "/Venkat-Fitness-Transformations.jpeg";
 import "./index.css";
 
 const CategoryBlogs = ({ posts, categories }) => {
@@ -48,7 +48,7 @@ console.log(filteredBlogs, 'fil')
       </div> */}
         <header className="bannerb">
           <div className="banner-overlay">
-            <img src={bannerImage} alt="blogs" className="banner-image" loading="lazy"/>
+            <img src={bannerImage} alt="blogs" className="banner-image" fetchpriority="high" width="2048" height="734" style={{ width: "100%", height: "auto" }}/>
             <div className="banner-text">
               <h1>{name}</h1>
             </div>
@@ -79,6 +79,9 @@ console.log(filteredBlogs, 'fil')
                   src={blog.bannerImage?.url}
                   alt="Blog Cover"
                   loading="lazy"
+                  width="411"
+                  height="231"
+                  style={{ width: "100%", height: "auto", aspectRatio: "411/231", objectFit: "cover" }}
                 />
                 <div className="blog-content">
                   <h3 className="blog-title">{blog.title}</h3>

@@ -12,7 +12,7 @@ export default {
     extend: {
       colors: {
         primary: "#090030",
-        Teal: "#04879C",
+        Teal: "#036b7b",
         gray: "#4B4B4C"
       },
       keyframes: {

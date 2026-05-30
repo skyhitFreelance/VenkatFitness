@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
 import { navlinks } from '../utils/Data'
-import logo from '../assets/Venkat-fitness-trainer.png'
+import logo from '../assets/Venkat-fitness-trainer.webp'
 import { Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/solid'
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
             <div className='md:flex items-center justify-between bg-primary py-4 md:px-10 px-7'>
                 {/* logo section */}
                 <div className='cursor-pointer flex'>
-                    <Link to='/'><img src={logo} alt='Venket Fitness' className='h-24' loading='lazy'/></Link>
+                    <Link to='/'><img src={logo} alt='Venket Fitness' className='h-24' fetchpriority="high" width="96" height="96" /></Link>
                 </div>
                 {/* Menu icon */}
                 <div onClick={() => setOpen(!open)} className='absolute right-8 top-6 cursor-pointer md:hidden w-7 h-7'>

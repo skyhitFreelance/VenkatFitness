@@ -130,8 +130,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 20px;
-    position: relative;
-    top: 145px;
+    margin-top: 145px;
 }
 
 .blog-content * {
@@ -230,10 +229,11 @@
     margin: 5px;
     border-radius: 5px;
     text-align: center;
-    &:hover {
-      background-color: #090030;
-      color: #fff;
-    }
+}
+
+.category-link:hover {
+    background-color: #090030;
+    color: #fff;
 }
 
 .related-post-card {

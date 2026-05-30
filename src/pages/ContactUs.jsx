@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import ContactPic from "../assets/contact-Fitness-Traier-in-India.jpeg";
+import ContactPic from "../assets/contact-Fitness-Traier-in-India-CiUJtHqI 1.webp";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";

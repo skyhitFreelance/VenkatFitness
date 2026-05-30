@@ -1,16 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tabs, Tab, Grid, Box, Typography, Button } from "@mui/material";
-import training from "../assets/VEN06242-min-2048x1365.jpg";
+
 import weight from "../assets/weight.png";
 import { Link } from "react-router-dom";
+import training from "../assets/VEN06242-min-2048x1365-CZSgI9qf.webp";
 import { Helmet } from "react-helmet";
 import SingleAccordion from "../components/Accordion";
 import Reviews from "../components/Reviews";
 
 const Training = () => {
-  const [activeTab, setActiveTab] = useState(0);
+    const [activeTab, setActiveTab] = useState(0);
   const [activeAccordion, setActiveAccordion] = useState(null);
   const [showMore, setShowMore] = useState(false);
+
+  useEffect(() => {
+    const bg = document.getElementById('lcp-training');
+    if (bg) bg.style.display = 'block';
+    
+    // Hide Home LCP just in case they navigated from Home
+    const homeBg = document.getElementById('lcp-home');
+    if (homeBg) homeBg.style.display = 'none';
+    const transBg = document.getElementById('lcp-transformations');
+    if (transBg) transBg.style.display = 'none';
+
+    return () => {
+      if (bg) bg.style.display = 'none';
+    };
+  }, []);
 
   const tabContents = [
     {
@@ -110,12 +126,15 @@ Online Workout Programs, Best online fitness training, Online fitness training f
         <Grid container spacing={3} className="first-section">
           <Grid item xs={12} md={6}>
             <div className="image-container relative px-8">
+                            <div className="image-container relative px-8">
               <img
                 src={training}
                 alt="Background"
                 className="w-full"
                 loading="lazy"
               />
+            </div>
+                            
             </div>
           </Grid>
           <Grid
@@ -1104,6 +1123,8 @@ Online Workout Programs, Best online fitness training, Online fitness training f
             alt="weight"
             className="h-24 m-auto"
             loading="lazy"
+            width="96"
+            height="96"
           />
           <Typography
             variant="h5"
@@ -1139,6 +1160,8 @@ Online Workout Programs, Best online fitness training, Online fitness training f
             alt="weight"
             className="h-24 m-auto"
             loading="lazy"
+            width="96"
+            height="96"
           />
           <Typography
             variant="h5"
@@ -1174,6 +1197,8 @@ Online Workout Programs, Best online fitness training, Online fitness training f
             alt="weight"
             className="h-24 m-auto"
             loading="lazy"
+            width="96"
+            height="96"
           />
           <Typography
             variant="h5"
